@@ -1,0 +1,22 @@
+{
+  "name": "updatesmartcontract",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "transfer": "npx hardhat run --network rinkeby scripts/transfer_ownership.js",
+    "deploy": "npx hardhat run scripts/deploy.js --network rinkeby",
+    "upgrade": "npx hardhat run --network rinkeby scripts/prepare_upgrade.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@openzeppelin/hardhat-upgrades": "^1.17.0",
+    "chai": "^4.3.6",
+    "ethers": "^5.6.4",
+    "hardhat": "^2.9.3"
+  }
+}

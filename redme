@@ -1,0 +1,29 @@
+
+我们可以使用Hardhat控制台与合约交互。 注意: Box.attach(PROXY ADDRESS)需要使用代理合约的地址。
+
+$ npx hardhat console --network rinkeby
+> const Box = await ethers.getContractFactory("Box")
+undefined
+> const box = await Box.attach("0x7488871B5Cc385260B9A1d10D7E7013a3Be95758")
+undefined
+> (await box.retrieve()).toString()
+'42'
+
+
+$ npx hardhat console --network rinkeby
+> const BoxV2 = await ethers.getContractFactory("BoxV2")
+undefined
+> const boxV2 = await BoxV2.attach("0x7488871B5Cc385260B9A1d10D7E7013a3Be95758")
+undefined
+> (await boxV2.retrieve()).toString()
+'42'
+> await boxV2.increment()
+{ hash:
+...
+> (await boxV2.retrieve()).toString()
+'43'
+
+
+BoxV1 at: 0x7488871B5Cc385260B9A1d10D7E7013a3Be95758  (升級後使用相同的地址)
+BoxV2 at: 0xF730c4DE68BBde7002B01B5265D925f74e541C4D
+
